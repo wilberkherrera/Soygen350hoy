@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plan de Acción Rápido | Gen350 World Gen</title>
+  <meta name="description" content="Guía práctica para alcanzar Gen350 en 48 horas: videos clave, pasos accionables y métricas para duplicar como líder World Gen." />
+
+  <!-- Preconnect & Fuente Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind config DEBE ir antes del script CDN -->
+  <script>
+    tailwind = {
+      config: {
+        theme: {
+          extend: {
+            colors: {
+              'dark-bg': '#0a0a0a',
+              'midnight': '#1e293b',
+              'neon-blue': '#38bdf8',
+              'electric-green': '#10b981',
+              'warning-neon': '#facc15',
+              'text-light': '#e2e8f0',
+              'dark-card': '#1f2937',
+              'sub-card': '#2c3e50'
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif']
+            },
+            boxShadow: {
+              'soft': '0 4px 12px rgba(0, 0, 0, 0.5)',
+              'neon': '0 0 15px rgba(56, 189, 248, 0.8)',
+              'dark-lg': '0 10px 25px rgba(0, 0, 0, 0.8)'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    @keyframes pulse-border {
+      0%, 100% { border-color:#38bdf8; box-shadow:0 0 0 0 rgba(56,189,248,.7) }
+      50% { border-color:#facc15; box-shadow:0 0 10px 3px rgba(250,204,21,.9) }
+    }
+    @keyframes background-pan {
+      from { background-position:0% 0% } to { background-position:-200% 0% }
+    }
+    .hero-bg {
+      background: linear-gradient(120deg, #1e293b, #0a0a0a, #1e293b);
+      background-size:200% 100%;
+      animation: background-pan 30s linear infinite;
+    }
+    body { background-color:#0a0a0a; font-family:'Inter',sans-serif; color:#e2e8f0 }
+
+    .video-container { position:relative; width:100%; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:.75rem; box-shadow:0 0 20px rgba(0,0,0,.5) }
+    .video-container iframe { position:absolute; inset:0; width:100%; height:100% }
+
+    .video-item-active { background-color:#38bdf8; color:#0a0a0a; font-weight:700; box-shadow:0 0 10px rgba(56,189,248,.4) }
+    .video-item-active:hover { background-color:#0ea5e9 }
+    .video-item { transition:all .15s ease }
+    .video-item:hover { background-color:#2c3e50 }
+
+    .step-content { transition:max-height .5s ease-in-out }
+    .step-accordion { background-color:#1f2937; transition:box-shadow .3s ease }
+    .step-accordion:hover { box-shadow:0 0 15px rgba(16,185,129,.4) }
+
+    .video-link-item {
+      display:flex; align-items:center; padding:.75rem; border-radius:.5rem;
+      background-color:#1e293b; border:1px solid #2c3e50;
+      box-shadow:0 2px 4px rgba(0,0,0,.5);
+      transition: background-color .15s ease, border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+    }
+    .video-link-item:hover { background-color:#2c3e50; border-color:#10b981; box-shadow:0 0 8px rgba(16,185,129,.3) }
+    .video-link-item:active { transform:scale(.98); box-shadow:0 0 15px rgba(16,185,129,.5), inset 0 2px 4px rgba(0,0,0,.5) }
+
+    /* Respeto a usuarios con prefiere-menor-animación */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-bg { animation: none }
+      [style*="animation: pulse-border"] { animation: none !important }
+      .step-content { transition: none }
+    }
+  </style>
+</head>
+<body class="text-text-light">
+  <!-- Header -->
+  <header class="bg-midnight shadow-soft sticky top-0 z-10 border-b border-gray-700">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-neon-blue">World Gen | <span class="text-electric-green">Gen350 Rápido</span></h1>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero-bg text-white py-16 md:py-24 text-center border-b-4 border-neon-blue">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="mb-8 p-4 bg-midnight/80 rounded-xl border-2 border-neon-blue inline-block mx-auto max-w-lg" style="animation:pulse-border 5s infinite ease-in-out;">
+        <p class="text-xl font-extrabold text-warning-neon mb-2">
+          <span class="inline-block mr-2 animate-bounce">🚨</span> ¡DETENTE! <span class="inline-block ml-2 animate-bounce">🚨</span>
+        </p>
+        <p class="text-sm font-medium text-text-light mb-3">Primero tienes que ver la guía</p>
+        <a href="https://equipogen.com/plan-de-accion/mined$0" target="_blank" rel="noopener noreferrer"
+           class="inline-block px-4 py-2 bg-electric-green text-dark-bg font-bold rounded-lg shadow-md hover:bg-neon-blue hover:text-white transition duration-150 transform hover:scale-105">
+          PLAN DE ACCIÓN EQUIPO GEN
+        </a>
+        <p class="text-sm mt-3 font-bold text-neon-blue">
+          Dile a tu patrocinador que te dé el plan de acción antes de continuar. Si ya lo viste, ¡continúa! Bienvenido NUEVO GEN350.
+        </p>
+      </div>
+
+      <h2 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight text-neon-blue shadow-neon">
+        Plan de Acción Rápido: ¡Conviértete en Gen350 en 48 Horas!
+      </h2>
+      <p class="text-lg opacity-90 mb-8 text-text-light">
+        Esta guía te proporciona el mapa exacto, los videos clave y la estrategia para alcanzar tu primer rango en World Gen de manera explosiva.
+      </p>
+      <a href="#videos-clave" id="scroll-to-videos"
+         class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-dark-bg bg-neon-blue hover:bg-electric-green md:text-lg shadow-neon transition duration-300 transform hover:scale-105">
+        ¡EMPEZAR AHORA!
+      </a>
+    </div>
+  </section>
+
+  <!-- Videos -->
+  <section id="videos-clave" class="py-16 bg-dark-bg text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h4 class="text-3xl font-extrabold text-neon-blue text-center mb-12 border-b-2 border-electric-green pb-3 inline-block mx-auto">
+        APRENDE A SER GEN350 EN HORA Y MEDIA
+      </h4>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 rounded-xl bg-dark-card overflow-hidden border border-gray-700 shadow-dark-lg">
+        <!-- Player -->
+        <div class="lg:col-span-2 p-4 md:p-6">
+          <div class="video-container mb-4 shadow-neon">
+            <iframe
+              id="video-player"
+              src="https://www.youtube.com/embed/ot1duHko6ZI?autoplay=0&rel=0&modestbranding=1"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <h2 id="video-title" class="text-2xl font-bold text-neon-blue mb-2">1. CÓMO SER GEN 350 RÁPIDAMENTE</h2>
+          <p id="video-description" class="text-gray-400 text-sm">
+            El módulo inicial para entender el plan de acción y la mentalidad requerida para el éxito explosivo en 48 horas.
+          </p>
+
+          <div class="mt-4 flex space-x-4">
+            <button id="prev-button"
+              class="px-4 py-2 bg-midnight text-text-light border border-gray-700 rounded-lg hover:bg-gray-700 transition duration-150 disabled:opacity-30 disabled:cursor-not-allowed font-medium text-sm focus:outline-none focus:ring-2 focus:ring-neon-blue"
+              type="button" aria-label="Video anterior">
+              &larr; Anterior
+            </button>
+            <button id="next-button"
+              class="px-4 py-2 bg-electric-green text-dark-bg rounded-lg hover:bg-neon-blue transition duration-150 disabled:opacity-30 disabled:cursor-not-allowed font-medium text-sm shadow-md shadow-electric-green/20 focus:outline-none focus:ring-2 focus:ring-electric-green"
+              type="button" aria-label="Siguiente video">
+              Siguiente &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- Playlist -->
+        <aside class="lg:col-span-1 bg-midnight/90 border-l border-gray-700 p-4 md:p-6 max-h-[80vh] overflow-y-auto" aria-label="Lista de reproducción">
+          <h3 class="text-xl font-bold text-electric-green mb-4 border-b border-gray-600 pb-2">Contenido (4 Módulos)</h3>
+          <ul id="playlist-list" class="space-y-2"></ul>
+        </aside>
+      </div>
+
+      <div class="mt-12 p-4 bg-neon-blue/10 border border-neon-blue rounded-lg text-sm text-gray-200 text-center">
+        <p class="font-bold mb-1 text-lg text-neon-blue">¡Máximo Enfoque!</p>
+        <p class="text-gray-300">Completa estos 4 módulos de forma consecutiva para internalizar la estrategia y poder aplicarla de inmediato.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plan de acción -->
+  <section id="plan-de-accion" class="py-16 md:py-20 bg-dark-bg border-t border-gray-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h3 class="text-3xl font-bold text-electric-green text-center mb-12">FÓRMULA INFALIBLE PARA SUBIR DE RANGOS</h3>
+
+      <div id="accordion-container" class="space-y-4 mb-16"></div>
+
+      <div id="fixed-metrics-block" class="bg-dark-card p-6 md:p-8 rounded-xl border-2 border-neon-blue shadow-neon"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-midnight text-white py-8 mt-12 border-t border-gray-700">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-sm text-gray-400">&copy; <span id="current-year"></span> World Gen. Todos los derechos reservados.</p>
+      <p class="text-xs mt-2 opacity-70 text-gray-500">Desarrollado para el equipo Gen350.</p>
+    </div>
+  </footer>
+
+  <!-- Script principal (defer) -->
+  <script defer>
+    // Videos
+    const videos = [
+      { id: 1, title: '1. CÓMO SER GEN 350 RÁPIDAMENTE', description: 'El módulo inicial para entender el plan de acción y la mentalidad requerida para el éxito explosivo en 48 horas.', youtubeId: 'ot1duHko6ZI' },
+      { id: 2, title: '2. Cómo hacer lista de contactos', description: 'Técnicas efectivas para construir una lista de prospectos amplia y de calidad.', youtubeId: 'biCbprgBWyk' },
+      { id: 3, title: '3. Cómo invitar a primer lanzamiento', description: 'Domina el arte de la invitación sin revelar demasiado, generando curiosidad y compromiso.', youtubeId: 'jT45dYlPSNc' },
+      { id: 4, title: '4. El ingrediente SECRETO en Network Marketing', description: 'Descubre el factor mental y emocional que diferencia a los top líderes en la industria.', youtubeId: 'Guryjkcwlcw' }
+    ];
+
+    // Métricas fijas
+    const fixedMetricsBlockContent = `
+      <h3 class="text-3xl font-bold text-neon-blue mb-5 text-center">NÚMEROS CLAROS Y ORGANIZACIÓN</h3>
+      <p class="text-text-light mb-4 text-lg font-semibold text-electric-green">Embudo de Seguimiento (Funnel):</p>
+      <div class="bg-midnight p-4 rounded-lg text-sm font-mono text-electric-green border border-neon-blue/50 shadow-soft mb-6">
+        <p>80 Hablan</p>
+        <p>40 Grupo</p>
+        <p>20 Presentación</p>
+        <p>10 Cierro</p>
+        <p>1 Ingresa</p>
+        <p class="font-bold text-warning-neon text-base mt-2">79 ¡A SEGUIMIENTO!</p>
+      </div>
+      <h4 class="text-xl font-bold text-text-light mb-3">Disciplina y Métricas</h4>
+      <p class="text-text-light mb-4">Conoce tus métricas y mantén la disciplina. ¡El G1K hace 10 cierres 1 a 1 al día!</p>
+      <ul class="list-disc ml-5 text-sm space-y-1 text-gray-400">
+        <li><span class="font-semibold text-text-light">Herramientas:</span> Usa el AGILIZADOR DE MEMORIA 2021.pdf.</li>
+      </ul>
+      <div class="mt-6 pt-3 border-t border-gray-700">
+        <p class="text-sm font-medium text-gray-500">Recuerda la ética: Luz, Actitud, Sonrisa y Claridad al Hablar.</p>
+      </div>
+    `;
+
+    // Pasos
+    const actionSteps = [
+      {
+        num: 1,
+        title: 'PROSPECCIÓN: Generar flujo',
+        subSteps: [{ title: "Prospección en Redes Sociales", youtubeId: "qd4qN4Wyor8" }],
+        content: `
+          <p class="text-text-light mb-4">Asegura un flujo constante de prospectos a través de:</p>
+          <ul class="list-disc ml-5 text-sm space-y-1 text-gray-400">
+            <li><span class="font-semibold text-text-light">Orgánico:</span> Marca Personal. <a href="https://www.youtube.com/watch?v=gc68z2bxs2U" target="_blank" rel="noopener noreferrer" class="text-electric-green hover:underline">(Video Guía)</a></li>
+            <li><span class="font-semibold text-text-light">En Frío:</span> Prospección en Redes Sociales.</li>
+            <li><span class="font-semibold text-text-light">Con Publicidad:</span> TikTok Ads & FB Ads (Objetivo: &lt; $0.20 USD por click).</li>
+          </ul>
+          <div class="mt-4 pt-3 border-t border-gray-700">
+            <p class="text-xs text-gray-500 font-medium">META: Invertir $10 USD/día para 10 cierres diarios mínimo.</p>
+          </div>
+        `
+      },
+      {
+        num: 2,
+        title: 'INVITACIÓN: contestar correctamente',
+        subSteps: [
+          { title: "CÓMO INVITAR (LISTA FRÍA)", youtubeId: "c_f4XyN7Z8M" },
+          { title: "CÓMO INVITAR (LISTA CALIENTE)", youtubeId: "b8x_wQ2D1vU" }
+        ],
+        content: `
+          <p class="text-text-light mb-4 font-semibold text-warning-neon">Cuidado con palabras sensibles (dólares, trading, inversiones, etc.) al invitar.</p>
+          <a href="COMO%20CONTESTAR%20MENSAJES%20CORRECTAMENTE.pdf" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center justify-center mt-3 px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-dark-bg bg-neon-blue hover:bg-electric-green transition duration-300 transform hover:scale-[1.02] shadow-md shadow-neon-blue/30">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            Descargar: Guía para contestar mensajes correctamente
+          </a>
+        `
+      },
+      {
+        num: 3,
+        title: 'PRESENTACIÓN: 1 a 1 o grupales',
+        subSteps: [
+          { title: "ESTRUCTURA DE PRESENTACIÓN 1-1", youtubeId: "P_z8vIe3QkU" },
+          { title: "CÓMO HACER PRESENTACIONES EFECTIVAS", youtubeId: "a_v7Yg5XoFj" }
+        ],
+        content: `<p class="text-text-light mb-4 font-semibold text-electric-green">INNEGOCIABLE: Tienes que presentar TODOS LOS DÍAS a tu grupo general.</p>`
+      },
+      {
+        num: 4,
+        title: 'CIERRES',
+        subSteps: [
+          { title: "Cierres efectivos paso a paso", youtubeId: "zqmOTuqMLQ8" },
+          { title: "Aumenta tu % de efectividad en cierres", youtubeId: "Mq0Fnn-Qifc" },
+          { title: "Como Ser GEN 10K en 30 días", youtubeId: "vgUDpAmCLkI" }
+        ],
+        content: `
+          <p class="text-text-light mb-4">Aprende la estructura formal para el cierre. Sé firme, claro y ayuda a tomar la decisión.</p>
+          <a href="HAZ_UN_CIERRE_Y_GANA_DINERO_LEYENDO.pdf" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center justify-center mt-3 px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-dark-bg bg-electric-green hover:bg-neon-blue transition duration-300 transform hover:scale-[1.02] shadow-md shadow-electric-green/30">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            Descargar: Guía de Cierre
+          </a>
+          <div class="mt-4 pt-3 border-t border-gray-700">
+            <p class="text-xs text-warning-neon font-medium">¡El día que no haces cierres, mataste tu negocio y comienzas desde cero!</p>
+          </div>
+        `
+      },
+      {
+        num: 5,
+        title: 'MANEJO DE OBJECIONES',
+        subSteps: [
+          { title: "Manejo Básico de Objeciones (Parte 1)", youtubeId: "QATBFwpLWZY" },
+          { title: "Respuestas a Objeciones Comunes (Parte 2)", youtubeId: "ffVyuS29j2U" }
+        ],
+        content: `<p class="text-text-light mb-4">La habilidad de manejar objeciones profesionalmente es la que más paga en el Network Marketing. ¡Domínala!</p>`
+      },
+      {
+        num: 6,
+        title: 'LA FORTUNA ESTÁ EN EL SEGUIMIENTO',
+        subSteps: [
+          { title: "Técnicas de Seguimiento para el Cierre", youtubeId: "JgVLJCP9Yso" },
+          { title: "Creando una Historia de Seguimiento Viral", youtubeId: "QDCAivAKHnA" }
+        ],
+        content: `<p class="text-text-light mb-4">El 90% de los cierres ocurren después del primer contacto. ¡El seguimiento es la clave de los grandes cheques!</p>`
+      },
+      {
+        num: 7,
+        title: 'MENTALIDAD Y AUTOEDUCACIÓN',
+        content: `
+          <p class="text-text-light mb-4">Tu mentalidad define tu cheque. Alimenta tu mente a diario.</p>
+          <ul class="list-disc ml-5 text-sm space-y-1 text-gray-400">
+            <li><span class="font-semibold text-text-light">Audio Diario:</span> Escucha mínimo 1 audio de Network Marketing por día.</li>
+            <li><span class="font-semibold text-text-light">Recurso:</span> Audiolibros en Top MindSet - Equipo Gen.</li>
+          </ul>
+          <div class="mt-4 pt-3 border-t border-gray-700">
+            <p class="text-xs text-gray-500 font-medium">INNEGOCIABLE: Conéctate a mixlr, toma notas y envía captura al grupo.</p>
+          </div>
+        `
+      },
+      {
+        num: 8,
+        title: 'DUPLICACIÓN Y LIDERAZGO',
+        subSteps: [
+          { title: "LA LEY DE LA DUPLICACION - MLM", youtubeId: "O8qWY4AsseU" },
+          { title: "DUPLICACIÓN: El SEGUNDO paso más importante del Network Marketing", youtubeId: "TEdXN6hOU_0" },
+          { title: "El plan de DUPLICACIÓN que te hará LIBRE", youtubeId: "PdTqJlDLTMA" }
+        ],
+        content: `<p class="text-text-light mb-4 font-semibold text-electric-green">La clave de un Network Marketing exitoso es la duplicación. Estudia estos módulos para crear un equipo independiente.</p>`
+      }
+    ];
+
+    // DOM
+    const videoPlayer = document.getElementById('video-player');
+    const videoTitle = document.getElementById('video-title');
+    const videoDescription = document.getElementById('video-description');
+    const playlistList = document.getElementById('playlist-list');
+    const prevButton = document.getElementById('prev-button');
+    const nextButton = document.getElementById('next-button');
+    const scrollButton = document.getElementById('scroll-to-videos');
+    const accordionContainer = document.getElementById('accordion-container');
+    const fixedBlockContainer = document.getElementById('fixed-metrics-block');
+
+    let currentVideoIndex = 0;
+
+    // Videos
+    function loadVideo(index) {
+      if (index < 0 || index >= videos.length) return;
+      currentVideoIndex = index;
+      const video = videos[currentVideoIndex];
+      videoPlayer.src = `https://www.youtube.com/embed/${video.youtubeId}?autoplay=0&rel=0&modestbranding=1`;
+      videoTitle.textContent = video.title;
+      videoDescription.textContent = video.description;
+      updatePlaylistUI();
+      updateNavigationButtons();
+    }
+
+    function updatePlaylistUI() {
+      playlistList.innerHTML = '';
+      videos.forEach((video, index) => {
+        const li = document.createElement('li');
+        li.className = 'p-3 rounded-lg cursor-pointer video-item text-sm';
+        li.setAttribute('role', 'button');
+        li.setAttribute('tabindex', '0');
+        li.setAttribute('aria-label', `Reproducir: ${video.title}`);
+
+        if (index === currentVideoIndex) {
+          li.classList.add('video-item-active');
+          li.innerHTML = `<span class="font-bold text-dark-bg">&bull; ${video.title}</span>`;
+        } else {
+          li.classList.add('text-gray-300');
+          li.innerHTML = `<span class="text-neon-blue mr-2">&blacktriangleright;</span> ${video.title}`;
+        }
+
+        li.addEventListener('click', () => loadVideo(index));
+        li.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') loadVideo(index); });
+        playlistList.appendChild(li);
+      });
+    }
+
+    function updateNavigationButtons() {
+      prevButton.disabled = currentVideoIndex === 0;
+      nextButton.disabled = currentVideoIndex === videos.length - 1;
+    }
+
+    function handleScroll(e) {
+      e?.preventDefault?.();
+      document.getElementById('videos-clave')?.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    prevButton.addEventListener('click', () => loadVideo(currentVideoIndex - 1));
+    nextButton.addEventListener('click', () => loadVideo(currentVideoIndex + 1));
+    scrollButton.addEventListener('click', handleScroll);
+
+    // Acordeón
+    function renderVideoLinks(subSteps) {
+      if (!subSteps?.length) return '';
+      return `
+        <div class="space-y-2 mt-4 p-3 bg-sub-card rounded-lg border border-gray-600">
+          <h5 class="text-md font-bold text-neon-blue border-b border-gray-700 pb-2">Videos Clave:</h5>
+          ${subSteps.map(sub => {
+            const url = \`https://www.youtube.com/watch?v=\${sub.youtubeId}\`;
+            return `
+              <a href="${url}" target="_blank" rel="noopener noreferrer" class="video-link-item">
+                <svg class="w-6 h-6 mr-3 text-electric-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span class="text-sm font-medium text-text-light hover:text-neon-blue flex-grow">${sub.title}</span>
+                <span class="text-electric-green text-lg ml-2 flex-shrink-0">&rarr;</span>
+              </a>
+            `;
+          }).join('')}
+        </div>
+      `;
+    }
+
+    function renderAccordion() {
+      accordionContainer.innerHTML = actionSteps.map((step, i) => {
+        const stepNum = i + 1;
+        let stepContent = (step.content || '') + renderVideoLinks(step.subSteps);
+
+        return `
+          <div class="step-accordion rounded-xl overflow-hidden border border-gray-700 hover:border-electric-green transition duration-300">
+            <button
+              class="flex justify-between items-center w-full p-4 md:p-5 text-lg md:text-xl font-bold text-left text-text-light bg-dark-card hover:bg-midnight transition duration-150 focus:outline-none focus:ring-2 focus:ring-electric-green"
+              type="button"
+              aria-expanded="false"
+              aria-controls="step-content-${stepNum}"
+              data-target="step-content-${stepNum}">
+              <span class="text-neon-blue mr-3">${stepNum}.</span>
+              <span class="flex-grow">${step.title}</span>
+              <span class="step-icon text-electric-green text-3xl transition-transform duration-300 transform font-light">+</span>
+            </button>
+            <div id="step-content-${stepNum}" class="step-content max-h-0 overflow-hidden bg-dark-card/80">
+              <div class="p-4 md:p-5 border-t border-gray-700/50 content-inner">${stepContent}</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.querySelectorAll('.step-accordion button').forEach(button => {
+        button.addEventListener('click', toggleAccordion);
+      });
+    }
+
+    function adjustMainContentHeight(mainContent) {
+      if (!mainContent) return;
+      const contentInner = mainContent.querySelector('.content-inner');
+      if (!contentInner) return;
+      requestAnimationFrame(() => {
+        const isExpanded = mainContent.previousElementSibling.getAttribute('aria-expanded') === 'true';
+        mainContent.style.maxHeight = isExpanded ? (contentInner.scrollHeight + 'px') : '0';
+      });
+    }
+
+    function toggleAccordion(e) {
+      const button = e.currentTarget;
+      const targetId = button.getAttribute('data-target');
+      const targetContent = document.getElementById(targetId);
+      const icon = button.querySelector('.step-icon');
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+      // Cerrar otros
+      document.querySelectorAll('.step-accordion button[aria-expanded="true"]').forEach(other => {
+        if (other !== button) {
+          const otherTarget = document.getElementById(other.getAttribute('data-target'));
+          const otherIcon = other.querySelector('.step-icon');
+          other.setAttribute('aria-expanded', 'false');
+          otherIcon.classList.remove('rotate-45');
+          otherTarget.style.maxHeight = '0';
+        }
+      });
+
+      if (isExpanded) {
+        button.setAttribute('aria-expanded', 'false');
+        icon.classList.remove('rotate-45');
+        targetContent.style.maxHeight = '0';
+      } else {
+        button.setAttribute('aria-expanded', 'true');
+        icon.classList.add('rotate-45');
+        adjustMainContentHeight(targetContent);
+      }
+    }
+
+    function renderFixedBlock() {
+      fixedBlockContainer.innerHTML = fixedMetricsBlockContent;
+    }
+
+    // Resize handler para acordeón abierto
+    window.addEventListener('resize', () => {
+      document.querySelectorAll('.step-accordion button[aria-expanded="true"]').forEach(btn => {
+        const content = document.getElementById(btn.getAttribute('data-target'));
+        adjustMainContentHeight(content);
+      });
+    });
+
+    // Init
+    window.addEventListener('DOMContentLoaded', () => {
+      loadVideo(0);
+      renderAccordion();
+      renderFixedBlock();
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>
