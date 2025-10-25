@@ -137,6 +137,30 @@
             transform: scale(0.98); /* Efecto de "press" */
             box-shadow: 0 0 15px rgba(16, 185, 129, 0.5), inset 0 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de neón activa */
         }
+
+        /* Estilo para el BOTÓN DE PRÁCTICA */
+        .practice-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #facc15; /* warning-neon */
+            color: #0a0a0a; /* dark-bg */
+            font-weight: 900;
+            text-align: center;
+            border-radius: 0.75rem;
+            border: 2px solid #0a0a0a;
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.8);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .practice-button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(250, 204, 21, 1);
+        }
+        .practice-button:active {
+            transform: scale(0.98);
+        }
     </style>
 </head>
 <body class="text-text-light">
@@ -312,7 +336,11 @@
                 num: 1,
                 title: 'PROSPECCIÓN: Generar flujo',
                 subSteps: [
-                    { title: "Prospección en Redes Sociales", youtubeId: "qd4qN4Wyor8" }
+                    // Nuevos videos en el orden solicitado (1-4)
+                    { title: "Clase Completa: Prospección Masiva con Apps", youtubeId: "WZsL5NfWhMU" }, 
+                    { title: "El Secreto de la Prospección en Historias (Stories)", youtubeId: "E7XCQ9dwoWU" },
+                    { title: "Técnicas Avanzadas para Flujo Constante", youtubeId: "YUKIbYB-LMw" },
+                    { title: "Prospección en Redes Sociales (Básico)", youtubeId: "qd4qN4Wyor8" } 
                 ],
                 content: `
                     <p class="text-text-light mb-4">Asegura un flujo constante de prospectos a través de:</p>
@@ -347,10 +375,22 @@
                 num: 3,
                 title: 'PRESENTACIÓN: 1 a 1 o grupales',
                 subSteps: [
-                    { title: "ESTRUCTURA DE PRESENTACIÓN 1-1", youtubeId: "P_z8vIe3QkU" }, 
-                    { title: "CÓMO HACER PRESENTACIONES EFECTIVAS", youtubeId: "a_v7Yg5XoFj" } 
+                    { title: "Presentación #1: Rompiendo el Hielo", youtubeId: "Rhlzl9RQAEc" }, 
+                    { title: "Presentación #2: Cautivando al Prospecto", youtubeId: "uWp5o07-2bA" },
+                    { title: "Presentación #3: Creando Urgencia y Valor", youtubeId: "9XXkWGpHohM" },
+                    { title: "Presentación #4: Cierre Suave e Invitación a la Acción", youtubeId: "XupBMsAqmpw" },
                 ],
-                content: `<p class="text-text-light mb-4 font-semibold text-electric-green">INNEGOCIABLE: Tienes que presentar TODOS LOS DÍAS a tu grupo general.</p>`
+                content: `
+                    <p class="text-text-light mb-4 font-semibold text-electric-green">INNEGOCIABLE: Tienes que presentar TODOS LOS DÍAS a tu grupo general.</p>
+
+                    <!-- BOTÓN DE PRÁCTICA AGREGADO AQUÍ -->
+                    <a href="https://youtu.be/ym49f3vk6u4?si=mMEHEqP8_-eo-tWY" target="_blank" class="practice-button">
+                        <svg class="w-6 h-6 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3.245-2.163a1 1 0 000-1.664L9.555 7.168z" clip-rule="evenodd"></path></svg>
+                        ASÍ DEBE VERSE TU PRESENTACIÓN. ¡ESTÚDIALA!
+                        <svg class="w-6 h-6 ml-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3.245-2.163a1 1 0 000-1.664L9.555 7.168z" clip-rule="evenodd"></path></svg>
+                    </a>
+                    <!-- FIN BOTÓN DE PRÁCTICA -->
+                `
             },
             {
                 num: 4,
