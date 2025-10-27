@@ -4,38 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plan de Acción Rápido | Gen350 World Gen</title>
-    <!-- Carga de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configuración para usar la fuente Inter y colores personalizados -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        // Paleta Futurista
                         'dark-bg': '#0a0a0a',
-                        'midnight': '#1e293b', // Azul muy oscuro/Negro
-                        'neon-blue': '#38bdf8', // Azul cielo brillante/Cian (Primary Accent)
-                        'electric-green': '#10b981', // Verde de éxito/acción
-                        'warning-neon': '#facc15', // Amarillo neón para advertencia
-                        'text-light': '#e2e8f0', // Gris claro para texto
-                        'dark-card': '#1f2937', // Fondo de tarjeta oscuro
-                        'sub-card': '#2c3e50', // Fondo de subacordeón
+                        'midnight': '#1e293b',
+                        'neon-blue': '#38bdf8',
+                        'electric-green': '#10b981',
+                        'warning-neon': '#facc15',
+                        'text-light': '#e2e8f0',
+                        'dark-card': '#1f2937',
+                        'sub-card': '#2c3e50',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                     },
                     boxShadow: {
                         'soft': '0 4px 12px rgba(0, 0, 0, 0.5)',
-                        'neon': '0 0 15px rgba(56, 189, 248, 0.8)', // Sombra de neón
+                        'neon': '0 0 15px rgba(56, 189, 248, 0.8)',
                         'dark-lg': '0 10px 25px rgba(0, 0, 0, 0.8)',
+                        'neon-glow-green': '0 0 15px rgba(16, 185, 129, 0.7)', 
+                        'neon-glow-blue': '0 0 15px rgba(56, 189, 248, 0.7)', 
+                        'hero-glow': '0 0 25px rgba(56, 189, 248, 0.6), 0 0 10px rgba(16, 185, 129, 0.5)', 
                     }
                 }
             }
         }
     </script>
     <style>
-        /* Animación de la barra de advertencia (Mantenida para el contenido del modal) */
+        /* Animación para el modal de advertencia */
         @keyframes pulse-border {
             0%, 100% {
                 border-color: #38bdf8;
@@ -46,31 +46,23 @@
                 box-shadow: 0 0 10px 3px rgba(250, 204, 21, 0.9);
             }
         }
-
-        /* Animación de degradado para el fondo del Hero */
+        /* Animación para el fondo del hero */
         @keyframes background-pan {
-            from {
-                background-position: 0% 0%;
-            }
-            to {
-                background-position: -200% 0%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-
-        .hero-bg {
-            background: linear-gradient(120deg, #1e293b, #0a0a0a, #1e293b);
-            background-size: 200% 100%;
-            animation: background-pan 30s linear infinite;
+        .hero-bg-new {
+            background: linear-gradient(-45deg, #1e293b, #0a0a0a, #1e293b, #0f172a);
+            background-size: 400% 400%;
+            animation: background-pan 15s ease infinite;
         }
-
-        /* Estilos personalizados para un mejor aspecto */
         body {
             background-color: #0a0a0a;
             font-family: 'Inter', sans-serif;
             color: #e2e8f0;
         }
-
-        /* Estilo para el contenedor del video (proporción 16:9) */
+        /* Estilos del reproductor de video */
         .video-container {
             position: relative;
             width: 100%;
@@ -87,65 +79,62 @@
             width: 100%;
             height: 100%;
         }
-        /* Estilos para la lista de reproducción */
+        /* Estilos de la lista de reproducción (Playlist) */
         .video-item-active {
-            background-color: #38bdf8; /* neon-blue */
+            background-color: #38bdf8;
             color: #0a0a0a;
-            font-weight: 700; /* bold */
+            font-weight: 700;
             box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
         }
         .video-item-active:hover {
-            background-color: #0ea5e9; /* darker neon */
+            background-color: #0ea5e9;
         }
         .video-item {
             transition: all 0.15s ease;
         }
         .video-item:hover {
-            background-color: #2c3e50; /* hover sutil */
+            background-color: #2c3e50;
         }
-
-        /* ESTILOS CLAVE DEL ACORDEÓN */
+        /* Estilos del acordeón de pasos */
         .step-content {
             transition: max-height 0.5s ease-in-out;
         }
         .step-accordion {
-            background-color: #1f2937; /* dark-card */
+            background-color: #1f2937;
             transition: box-shadow 0.3s ease;
         }
         .step-accordion:hover {
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); /* Sombra electric-green */
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
         }
-
-        /* Estilos para los enlaces de video */
+        /* Estilos de los enlaces de video dentro del acordeón */
         .video-link-item {
             display: flex;
             align-items: center;
             padding: 0.75rem;
             border-radius: 0.5rem;
-            background-color: #1e293b; /* midnight */
-            border: 1px solid #2c3e50; /* sub-card/darker border */
+            background-color: #1e293b;
+            border: 1px solid #2c3e50;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
             transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
         }
         .video-link-item:hover {
             background-color: #2c3e50;
-            border-color: #10b981; /* electric-green hover */
+            border-color: #10b981;
             box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
         }
         .video-link-item:active {
-            transform: scale(0.98); /* Efecto de "press" */
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.5), inset 0 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de neón activa */
+            transform: scale(0.98);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.5), inset 0 2px 4px rgba(0, 0, 0, 0.5);
         }
-
-        /* Estilo para el BOTÓN DE PRÁCTICA */
+        /* Botón de práctica/CTA */
         .practice-button {
             display: flex;
             align-items: center;
             justify-content: center;
             margin-top: 1rem;
             padding: 1rem;
-            background-color: #facc15; /* warning-neon */
-            color: #0a0a0a; /* dark-bg */
+            background-color: #facc15;
+            color: #0a0a0a;
             font-weight: 900;
             text-align: center;
             border-radius: 0.75rem;
@@ -160,31 +149,29 @@
         .practice-button:active {
             transform: scale(0.98);
         }
-
-        /* ESTILOS DEL POP-UP (MODAL) */
+        /* Modal de advertencia */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro semitransparente */
+            background-color: rgba(0, 0, 0, 0.9);
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 100; /* Asegura que esté por encima de todo */
+            z-index: 100;
         }
         .modal-content {
             position: relative;
-            /* Usamos la misma barra de advertencia que ya estaba definida */
             background-color: #1e293b; 
-            padding: 2.5rem 1.5rem 1.5rem 1.5rem; /* Más padding arriba para la X */
+            padding: 2.5rem 1.5rem 1.5rem 1.5rem;
             border-radius: 1rem;
             max-width: 90%;
             width: 450px;
             text-align: center;
             border: 2px solid #38bdf8;
-            animation: pulse-border 5s infinite ease-in-out; /* Mantiene el pulso */
+            animation: pulse-border 5s infinite ease-in-out;
             box-shadow: 0 10px 25px rgba(56, 189, 248, 0.5);
         }
         .modal-close-btn {
@@ -193,7 +180,7 @@
             right: 8px;
             background: none;
             border: none;
-            color: #e2e8f0; /* Color gris claro */
+            color: #e2e8f0;
             font-size: 1.5rem;
             font-weight: 600;
             cursor: pointer;
@@ -203,22 +190,104 @@
             transition: color 0.2s, background-color 0.2s;
         }
         .modal-close-btn:hover {
-            color: #facc15; /* Warning Neon */
-            background-color: #1f2937; /* Dark Card */
+            color: #facc15;
+            background-color: #1f2937;
+        }
+        /* Botones de descarga de PDF */
+        .pdf-download-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0.75rem;
+            padding: 0.75rem 1rem;
+            font-size: 0.875rem; 
+            font-weight: 500; 
+            border-radius: 0.5rem; 
+            color: #0a0a0a; 
+            background: linear-gradient(90deg, #10b981 0%, #38bdf8 100%); 
+            border: 1px solid transparent;
+            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3); 
+            transition: all 0.3s ease;
+            transform: scale(1);
+        }
+
+        .pdf-download-button:hover {
+            background: linear-gradient(90deg, #38bdf8 0%, #10b981 100%); 
+            transform: scale(1.03);
+            box-shadow: 0 6px 15px rgba(56, 189, 248, 0.5); 
+            border-color: #10b981; 
+        }
+
+        .pdf-download-button:active {
+            transform: scale(0.98);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+        }
+        /* Estilos de las tarjetas de listas de reproducción (Playlists) */
+        .playlist-card {
+            background-color: #1e293b;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+        }
+        .playlist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
+        }
+        .playlist-card-image {
+            width: 100%;
+            height: 120px;
+            background-color: #0a0a0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden; 
+        }
+        .playlist-card-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .playlist-card-play-icon {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.9;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+        .playlist-card:hover .playlist-card-play-icon {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        .playlist-card-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            padding: 0.75rem 0.75rem 0.25rem 0.75rem;
+            line-height: 1.3;
+        }
+        .playlist-card-caption {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            padding: 0 0.75rem 0.75rem 0.75rem;
         }
     </style>
 </head>
 <body class="text-text-light">
+    
+    
 
-    <!-- MODAL POP-UP DE ADVERTENCIA -->
-    <div id="warning-modal" class="modal-overlay hidden">
+<div id="warning-modal" class="modal-overlay hidden">
         <div class="modal-content">
-            <!-- Botón de Cierre Discreto -->
             <button id="close-modal-btn" class="modal-close-btn">
                 &times;
             </button>
-            
-            <!-- Contenido de la Advertencia (Copiado exactamente del original) -->
             <div id="modal-warning-content">
                 <p class="text-xl font-extrabold text-warning-neon mb-2">
                     <span class="inline-block mr-2 animate-bounce">🚨</span> ¡DETENTE! <span class="inline-block ml-2 animate-bounce">🚨</span>
@@ -226,58 +295,47 @@
                 <p class="text-sm font-medium text-text-light mb-3">
                     Primero tienes que ver la guía
                 </p>
-                <!-- Botón "EQUIPO GEN" con estilo de botón claro -->
-                <a href="https://equipogen.com/plan-de-accion/mined" target="_blank" class="inline-block px-4 py-2 bg-electric-green text-dark-bg font-bold rounded-lg shadow-md hover:bg-neon-blue hover:text-white transition duration-150 transform hover:scale-105">
+                <a href="https://equipogen.com/plan-de-accion/mined$0" target="_blank" class="inline-block px-4 py-2 bg-electric-green text-dark-bg font-bold rounded-lg shadow-md hover:bg-neon-blue hover:text-white transition duration-150 transform hover:scale-105">
                     PLAN DE ACCIÓN EQUIPO GEN
                 </a>
-
                 <p class="text-sm mt-3 font-bold text-neon-blue">
                     Dile a tu patrocinador que te dé el plan de acción antes de continuar. Si ya lo viste, ¡continúa! Bienvenido NUEVO GEN350.
                 </p>
             </div>
-            <!-- Fin Contenido de la Advertencia -->
         </div>
     </div>
-    <!-- FIN MODAL POP-UP -->
+    
+    
 
-
-    <!-- Header / Navbar Simulado (Modo Oscuro) -->
-    <header class="bg-midnight shadow-soft sticky top-0 z-10 border-b border-gray-700">
+<header class="bg-midnight shadow-soft sticky top-0 z-10 border-b border-gray-700">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <h1 class="text-xl font-bold text-neon-blue">World Gen | <span class="text-electric-green">Gen350 Rápido</span></h1>
         </div>
     </header>
+    
+    
 
-    <!-- Sección de Héroe/Introducción (Hero Futurista) -->
-    <section class="hero-bg text-white py-16 md:py-24 text-center border-b-4 border-neon-blue">
+<section class="hero-bg-new text-white py-16 md:py-24 text-center border-b-4 border-neon-blue shadow-hero-glow">
         <div class="max-w-4xl mx-auto px-4">
-
-            <!-- ESPACIO DE LA ADVERTENCIA: Se quita el contenido para que solo salga en el modal -->
             <div class="mb-8 p-4 hidden"></div>
-
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight text-neon-blue shadow-neon">Plan de Acción Rápido: ¡Conviértete en Gen350 en 48 Horas!</h2>
-            <p class="text-lg opacity-90 mb-8 text-text-light">Esta guía te proporciona el mapa exacto, los videos clave y la estrategia para alcanzar tu primer rango en World Gen de manera explosiva.</p>
-
-            <!-- Botón con Scroll Suave -->
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight text-neon-blue text-shadow-lg drop-shadow-neon">Plan de Acción Rápido: ¡Conviértete en Gen350 en 48 Horas!</h2>
+            <p class="text-lg opacity-90 mb-8 text-text-light font-medium">Esta guía te proporciona el mapa exacto, los videos clave y la estrategia para alcanzar tu primer rango en World Gen de manera explosiva.</p>
             <a href="#videos-clave" id="scroll-to-videos" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-dark-bg bg-neon-blue hover:bg-electric-green md:text-lg shadow-neon transition duration-300 transform hover:scale-105">
                 ¡EMPEZAR AHORA!
             </a>
         </div>
     </section>
+    
+    
 
-    <!-- Sección de Videos Clave (Paso 0) - DISEÑO TIPO PLATAFORMA OSCURA -->
-    <section id="videos-clave" class="py-16 bg-dark-bg text-white">
+<section id="videos-clave" class="py-16 bg-dark-bg text-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
             <h4 class="text-3xl font-extrabold text-neon-blue text-center mb-12 border-b-2 border-electric-green pb-3 inline-block mx-auto">
                 APRENDE A SER GEN350 EN HORA Y MEDIA
             </h4>
-
-            <!-- Contenedor Principal: Video + Contenido Lateral -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 shadow-dark-lg rounded-xl bg-dark-card overflow-hidden border border-gray-700">
-
-                <!-- Columna Izquierda: Reproductor de Video -->
                 <div class="lg:col-span-2 p-4 md:p-6">
+                    
                     <div class="video-container mb-4 shadow-neon">
                         <iframe
                             id="video-player"
@@ -288,12 +346,10 @@
                             allowfullscreen>
                         </iframe>
                     </div>
-
-                    <!-- Título y Descripción del Video Actual -->
+                    
                     <h2 id="video-title" class="text-2xl font-bold text-neon-blue mb-2">1. CÓMO SER GEN 350 RÁPIDAMENTE</h2>
                     <p id="video-description" class="text-gray-400 text-sm">El módulo inicial para entender el plan de acción y la mentalidad requerida para el éxito explosivo en 48 horas.</p>
-
-                    <!-- Botones de Continuidad/Navegación -->
+                    
                     <div class="mt-4 flex space-x-4">
                         <button id="prev-button" class="px-4 py-2 bg-midnight text-text-light border border-gray-700 rounded-lg hover:bg-gray-700 transition duration-150 disabled:opacity-30 disabled:cursor-not-allowed font-medium text-sm">
                             &larr; Anterior
@@ -303,58 +359,45 @@
                         </button>
                     </div>
                 </div>
-
-                <!-- Columna Derecha: Contenido/Lista de Reproducción -->
+                
                 <div class="lg:col-span-1 bg-midnight/90 border-l border-gray-700 p-4 md:p-6 max-h-[80vh] overflow-y-auto">
                     <h3 class="text-xl font-bold text-electric-green mb-4 border-b border-gray-600 pb-2">Contenido (4 Módulos)</h3>
-
-                    <ul id="playlist-list" class="space-y-2">
-                        <!-- Los ítems se insertan aquí por JS o se definen con data-atributos -->
-                    </ul>
+                    <ul id="playlist-list" class="space-y-2"></ul>
                 </div>
-
             </div>
-            <!-- Fin del Contenedor Principal -->
-
-            <!-- Nota de Enfoque -->
+            
             <div class="mt-12 p-4 bg-neon-blue/10 border border-neon-blue rounded-lg text-sm text-gray-200 text-center">
                 <p class="font-bold mb-1 text-lg text-neon-blue">¡Máximo Enfoque!</p>
                 <p class="text-gray-300">Completa estos 4 módulos de forma consecutiva para internalizar la estrategia y poder aplicarla de inmediato.</p>
             </div>
-
-
         </div>
     </section>
+    
+    
 
-    <!-- Sección del Plan de Acción (8 Pasos) - ACORDEÓN Y BLOQUE FIJO -->
-    <section id="plan-de-accion" class="py-16 md:py-20 bg-dark-bg border-t border-gray-800">
+<section id="plan-de-accion" class="py-16 md:py-20 bg-dark-bg border-t border-gray-800">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- TÍTULO ACTUALIZADO -->
             <h3 class="text-3xl font-bold text-electric-green text-center mb-12">FÓRMULA INFALIBLE PARA SUBIR DE RANGOS</h3>
-
-            <!-- Contenedor del Acordeón -->
-            <div id="accordion-container" class="space-y-4 mb-16">
-                <!-- Los pasos se inyectarán aquí por JavaScript -->
-            </div>
-
-            <!-- BLOQUE DE INFORMACIÓN FIJO (NÚMEROS CLAROS Y ORGANIZACIÓN) -->
-            <div id="fixed-metrics-block" class="bg-dark-card p-6 md:p-8 rounded-xl border-2 border-neon-blue shadow-neon">
-                <!-- El contenido se inyectará aquí por JavaScript -->
-            </div>
-
+            
+            <div id="accordion-container" class="space-y-4 mb-16"></div>
+            
+            <div id="fixed-metrics-block" class="bg-dark-card p-6 md:p-8 rounded-xl border-2 border-neon-blue shadow-neon"></div>
         </div>
     </section>
+    
+    
 
-    <!-- Footer -->
-    <footer class="bg-midnight text-white py-8 mt-12 border-t border-gray-700">
+<footer class="bg-midnight text-white py-8 mt-12 border-t border-gray-700">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p class="text-sm text-gray-400">&copy; <span id="current-year"></span> World Gen. Todos los derechos reservados.</p>
             <p class="text-xs mt-2 opacity-70 text-gray-500">Desarrollado para el equipo Gen350.</p>
         </div>
     </footer>
+    
+    
 
-    <script>
-        // Array de videos (Módulos de la primera sección)
+<script>
+        // --- DATA DE LA APLICACIÓN ---
         const videos = [
             { id: 1, title: '1. CÓMO SER GEN 350 RÁPIDAMENTE', description: 'El módulo inicial para entender el plan de acción y la mentalidad requerida para el éxito explosivo en 48 horas.', youtubeId: 'ot1duHko6ZI' },
             { id: 2, title: '2. Cómo hacer lista de contactos', description: 'Técnicas efectivas para construir una lista de prospectos amplia y de calidad.', youtubeId: 'biCbprgBWyk' },
@@ -362,11 +405,8 @@
             { id: 4, title: '4. El ingrediente SECRETO en Network Marketing', description: 'Descubre el factor mental y emocional que diferencia a los top líderes en la industria.', youtubeId: 'Guryjkcwlcw' }
         ];
 
-        // Contenido para el BLOQUE DE NÚMEROS CLAROS Y ORGANIZACIÓN (estático)
         const fixedMetricsBlockContent = `
             <h3 class="text-3xl font-bold text-neon-blue mb-5 text-center">NÚMEROS CLAROS Y ORGANIZACIÓN</h3>
-
-            <!-- Contenido del Embudo -->
             <p class="text-text-light mb-4 text-lg font-semibold text-electric-green">Embudo de Seguimiento (Funnel):</p>
             <div class="bg-midnight p-4 rounded-lg text-sm font-mono text-electric-green border border-neon-blue/50 shadow-soft mb-6">
                 <p>80 Hablan</p>
@@ -376,29 +416,25 @@
                 <p>1 Ingresa</p>
                 <p class="font-bold text-warning-neon text-base mt-2">79 ¡A SEGUIMIENTO!</p>
             </div>
-
             <h4 class="text-xl font-bold text-text-light mb-3">Disciplina y Métricas</h4>
             <p class="text-text-light mb-4">Conoce tus métricas y mantén la disciplina. ¡El G1K hace 10 cierres 1 a 1 al día!</p>
-
             <ul class="list-disc ml-5 text-sm space-y-1 text-gray-400">
-                <li><span class="font-semibold text-text-light">Herramientas:</span> Usa el AGILIZADOR DE MEMORIA 2021.pdf.</li>
+                        <li><span class="font-semibold text-text-light">Herramientas:</span> Usa el AGILIZADOR DE MEMORIA 2021.pdf.</li>
             </ul>
             <div class="mt-6 pt-3 border-t border-gray-700">
                 <p class="text-sm font-medium text-gray-500">Recuerda la ética: Luz, Actitud, Sonrisa y Claridad al Hablar.</p>
             </div>
         `;
-
-        // Array de Pasos de Acción (para el Acordeón) - 8 PASOS
+        
         const actionSteps = [
             {
                 num: 1,
                 title: 'PROSPECCIÓN: Generar flujo',
                 subSteps: [
-                    // Nuevos videos en el orden solicitado (1-4)
-                    { title: "PASO 1 PARA PROSPECCION MASIVA: REMAPEO", youtubeId: "WZsL5NfWhMU" },
-                    { title: "Flujo de prospectos infinitos", youtubeId: "E7XCQ9dwoWU" },
-                    { title: "Destapando tu embudo: ley de numeros", youtubeId: "YUKIbYB-LMw" },
-                    { title: "Prospección profesional", youtubeId: "qd4qN4Wyor8" }
+                    { title: "Clase Completa: Prospección Masiva con Apps", youtubeId: "WZsL5NfWhMU" },
+                    { title: "El Secreto de la Prospección en Historias (Stories)", youtubeId: "E7XCQ9dwoWU" },
+                    { title: "Técnicas Avanzadas para Flujo Constante", youtubeId: "YUKIbYB-LMw" },
+                    { title: "Prospección en Redes Sociales (Básico)", youtubeId: "qd4qN4Wyor8" }
                 ],
                 content: `
                     <p class="text-text-light mb-4">Asegura un flujo constante de prospectos a través de:</p>
@@ -415,19 +451,20 @@
             {
                 num: 2,
                 title: 'INVITACIÓN: contestar correctamente',
+                // MODIFICADO: 4 videos en lugar de 2
                 subSteps: [
                     { title: "CÓMO INVITAR (LISTA FRÍA)", youtubeId: "c_f4XyN7Z8M" },
-                    { title: "CÓMO INVITAR (LISTA CALIENTE)", youtubeId: "b8x_wQ2D1vU" }
+                    { title: "CÓMO INVITAR (LISTA CALIENTE)", youtubeId: "b8x_wQ2D1vU" },
+                    { title: "Técnica de Invitación con Historias", youtubeId: "3vV8r5hNq7k" }, // Video Placeholder 3
+                    { title: "Rompiendo el Hielo y Cita Rápida", youtubeId: "aQ8p5tX1yWz" }  // Video Placeholder 4
                 ],
                 content: `
-                    <p class="text-text-light mb-4 font-semibold text-warning-neon">Aqui esta la guia para contestar mensajes cuando tienes flujo de prospectos frios</p>
-                    <!-- ENLACE AL PDF SUBIDO: Guía de Respuestas -->
-                    <a href="/CONTESTAR.pdf" target="_blank" class="inline-flex items-center justify-center mt-3 px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-dark-bg bg-neon-blue hover:bg-electric-green transition duration-300 transform hover:scale-[1.02] shadow-md shadow-neon-blue/30">
+                    <p class="text-text-light mb-4 font-semibold text-warning-neon">Cuidado con palabras sensibles (dólares, trading, inversiones, etc.) al invitar.</p>
+                    <a href="public/CONTESTAR.pdf" target="_blank" class="pdf-download-button">
                         <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                         Descargar: Guía para contestar mensajes correctamente
                     </a>
-                    <!-- FIN ENLACE PDF -->
-                `
+                    `
             },
             {
                 num: 3,
@@ -440,15 +477,12 @@
                 ],
                 content: `
                     <p class="text-text-light mb-4 font-semibold text-electric-green">INNEGOCIABLE: Tienes que presentar TODOS LOS DÍAS a tu grupo general.</p>
-
-                    <!-- BOTÓN DE PRÁCTICA AGREGADO AQUÍ -->
                     <a href="https://youtu.be/ym49f3vk6u4?si=mMEHEqP8_-eo-tWY" target="_blank" class="practice-button">
                         <svg class="w-6 h-6 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3.245-2.163a1 1 0 000-1.664L9.555 7.168z" clip-rule="evenodd"></path></svg>
                         ASÍ DEBE VERSE TU PRESENTACIÓN. ¡ESTÚDIALA!
                         <svg class="w-6 h-6 ml-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3.245-2.163a1 1 0 000-1.664L9.555 7.168z" clip-rule="evenodd"></path></svg>
                     </a>
-                    <!-- FIN BOTÓN DE PRÁCTICA -->
-                `
+                    `
             },
             {
                 num: 4,
@@ -456,17 +490,14 @@
                 subSteps: [
                     { title: "Cierres efectivos paso a paso", youtubeId: "zqmOTuqMLQ8" },
                     { title: "Aumenta tu % de efectividad en cierres", youtubeId: "Mq0Fnn-Qifc" },
-                    // Nuevo video añadido por solicitud del usuario
                     { title: "Como Ser GEN 10K en 30 días", youtubeId: "vgUDpAmCLkI" }
                 ],
                 content: `
                     <p class="text-text-light mb-4">Aprende la estructura formal para el cierre. Sé firme, claro y ayuda a tomar la decisión.</p>
-                    <!-- ENLACE AL PDF SUBIDO: Guía de Cierre -->
-                    <a href="/ESTRUCTURA-CIERRE.pdf" target="_blank" class="inline-flex items-center justify-center mt-3 px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-dark-bg bg-electric-green hover:bg-neon-blue transition duration-300 transform hover:scale-[1.02] shadow-md shadow-electric-green/30">
+                    <a href="public/ESTRUCTURA-CIERRE.pdf" target="_blank" class="pdf-download-button">
                         <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                         Descargar: Guía de Cierre
                     </a>
-                    <!-- FIN ENLACE PDF -->
                     <div class="mt-4 pt-3 border-t border-gray-700">
                         <p class="text-xs text-warning-neon font-medium">¡El día que no haces cierres, mataste tu negocio y comienzas desde cero!</p>
                     </div>
@@ -479,7 +510,13 @@
                     { title: "Manejo Básico de Objeciones (Parte 1)", youtubeId: "QATBFwpLWZY" },
                     { title: "Respuestas a Objeciones Comunes (Parte 2)", youtubeId: "ffVyuS29j2U" }
                 ],
-                content: `<p class="text-text-light mb-4">La habilidad de manejar objeciones profesionalmente es la que más paga en el Network Marketing. ¡Domínala!</p>`
+                content: `
+                    <p class="text-text-light mb-4">La habilidad de manejar objeciones profesionalmente es la que más paga en el Network Marketing. ¡Domínala!</p>
+                    <a href="public/Objeciones.pdf.pdf" target="_blank" class="pdf-download-button">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        Descargar: 11 objeciones comunes y como contestarlas
+                    </a>
+                    `
             },
             {
                 num: 6,
@@ -493,21 +530,78 @@
             {
                 num: 7,
                 title: 'MENTALIDAD Y AUTOEDUCACIÓN',
+                subSteps: [], 
                 content: `
-                    <p class="text-text-light mb-4">Tu mentalidad define tu cheque. Alimenta tu mente a diario.</p>
+                    <p class="text-text-light mb-4">Tu mentalidad define tu cheque. Alimenta tu mente a diario. <span class="font-bold text-neon-blue">¡Sigue el canal oficial de Minded!</span></p>
                     <ul class="list-disc ml-5 text-sm space-y-1 text-gray-400">
                         <li><span class="font-semibold text-text-light">Audio Diario:</span> Escucha mínimo 1 audio de Network Marketing por día.</li>
-                        <li><span class="font-semibold text-text-light">Recurso:</span> Audiolibros en Top MindSet - Equipo Gen.</li>
+                        
+
+<li><span class="font-semibold text-text-light">Recurso:</span> <a href="https://equipogen.com/top-mindset" target="_blank" class="text-warning-neon hover:underline font-bold">Audiolibros en Top MindSet - Equipo Gen.</a></li>
                     </ul>
                     <div class="mt-4 pt-3 border-t border-gray-700">
-                        <p class="text-xs text-gray-500 font-medium">INNEGOCIABLE: Conéctate a mixlr, toma notas y envía captura al grupo.</p>
+                        <p class="text-lg font-bold text-electric-green mb-3">Recursos Clave de Minded</p>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                            <a href="https://youtube.com/@sistemamined?si=5pawme8UA_zpknvJ" target="_blank" class="playlist-card">
+                                <div class="playlist-card-image">
+                                    
+                                    <img src="https://i0.wp.com/vivaelnetworking.com/wp-content/uploads/2021/07/que-es-mined.jpg?fit=1463%2C700&ssl=1$0" alt="Canal Oficial Sistema Mined">
+                                    <div class="playlist-card-play-icon">
+                                        <svg class="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </div>
+                                </div>
+                                <p class="playlist-card-title">Canal Oficial: Sistema Mined</p>
+                                <p class="playlist-card-caption">Subscríbete para contenido diario sobre habilidades de network marketing</p>
+                            </a>
+                            
+                            <a href="https://youtube.com/playlist?list=PLLMoy_vWYjloAkapzGHqI1DE26OJub6q0&si=D9gl2dIxvkO6vuQx" target="_blank" class="playlist-card">
+                                <div class="playlist-card-image">
+                                    <img src="https://i.ytimg.com/vi/O_v0P1leRCg/maxresdefault.jpg" alt="Playlist Cover 1">
+                                    <div class="playlist-card-play-icon">
+                                        <svg class="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </div>
+                                </div>
+                                <p class="playlist-card-title">FORMANDO MILLONARIOS: Carlos Aguilar</p>
+                                <p class="playlist-card-caption">Playlist sin rangos</p>
+                            </a>
+                            <a href="https://youtube.com/playlist?list=PLLMoy_vWYjloPwDgW74tA4QCUv58SvQY8&si=CfIH7QSpwoEpvBEA" target="_blank" class="playlist-card">
+                                <div class="playlist-card-image">
+                                    <img src="https://i.ytimg.com/vi/pqiN02vbsnQ/maxresdefault.jpg" alt="Playlist Cover 2">
+                                    <div class="playlist-card-play-icon">
+                                        <svg class="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </div>
+                                </div>
+                                <p class="playlist-card-title">FORMANDO MILLONARIOS: GEN350</p>
+                                <p class="playlist-card-caption">Playlist de Gen350</p>
+                            </a>
+                            <a href="https://youtube.com/playlist?list=PLLMoy_vWYjlpIMluGgmswkCpMyNLtS5QK&si=7ZoMS-JXqgoMyp2M" target="_blank" class="playlist-card">
+                                <div class="playlist-card-image">
+                                    <img src="https://img.youtube.com/vi/1r-9c-g2asU/maxresdefault.jpg" alt="Playlist Cover 3">
+                                    <div class="playlist-card-play-icon">
+                                        <svg class="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </div>
+                                </div>
+                                <p class="playlist-card-title">Podcast Alto Voltaje</p>
+                                <p class="playlist-card-caption">Playlist de Carlos Aguilar</p>
+                            </a>
+                            <a href="https://youtube.com/playlist?list=PL1ImC2VIxQJwjZWrKN8usohNoZxnadncI&si=kTIeqjarftqcWisk" target="_blank" class="playlist-card">
+                                <div class="playlist-card-image">
+                                    <img src="https://img.youtube.com/vi/MmQ44RGW8OQ/maxresdefault.jpg" alt="Playlist Cover 4">
+                                    <div class="playlist-card-play-icon">
+                                        <svg class="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </div>
+                                </div>
+                                <p class="playlist-card-title">Podcast El Legado</p>
+                                <p class="playlist-card-caption">Playlist de Wilberk Herrera</p>
+                            </a>
+                        </div>
                     </div>
                 `
             },
             {
                 num: 8,
                 title: 'DUPLICACIÓN Y LIDERAZGO',
-                // Videos de Duplicación y Liderazgo añadidos
                 subSteps: [
                     { title: "LA LEY DE LA DUPLICACION - MLM", youtubeId: "O8qWY4AsseU" },
                     { title: "DUPLICACIÓN: El SEGUNDO paso más importante del Network Marketing", youtubeId: "TEdXN6hOU_0" },
@@ -519,8 +613,7 @@
             }
         ];
 
-
-        // Elementos del DOM de la sección de Videos
+        // --- MANEJO DE ELEMENTOS DEL DOM ---
         const videoPlayer = document.getElementById('video-player');
         const videoTitle = document.getElementById('video-title');
         const videoDescription = document.getElementById('video-description');
@@ -528,49 +621,32 @@
         const prevButton = document.getElementById('prev-button');
         const nextButton = document.getElementById('next-button');
         const scrollButton = document.getElementById('scroll-to-videos');
-        
-        // Elementos del DOM del Modal
         const warningModal = document.getElementById('warning-modal');
         const closeModalBtn = document.getElementById('close-modal-btn');
-
         let currentVideoIndex = 0;
 
-        /**
-         * Lógica del Modal Pop-up
-         */
+        // --- FUNCIONES DEL MODAL DE ADVERTENCIA ---
         function showModal() {
             warningModal.classList.remove('hidden');
         }
-
         function closeModal() {
             warningModal.classList.add('hidden');
         }
-
-        // Eventos del Modal
         closeModalBtn.addEventListener('click', closeModal);
-        // Cierra el modal si se hace clic fuera del contenido
         warningModal.addEventListener('click', (e) => {
             if (e.target.classList.contains('modal-overlay')) {
                 closeModal();
             }
         });
 
-
-        /**
-         * Lógica de la sección de Videos
-         */
+        // --- FUNCIONES DEL REPRODUCTOR DE VIDEO ---
         function loadVideo(index) {
             if (index < 0 || index >= videos.length) return;
-
             currentVideoIndex = index;
             const video = videos[currentVideoIndex];
-
-            // Reemplaza el embed para que no intente hacer autoplay en el iframe del acordeón
             videoPlayer.src = `https://www.youtube.com/embed/${video.youtubeId}?autoplay=0&rel=0`;
-
             videoTitle.textContent = video.title;
             videoDescription.textContent = video.description;
-
             updatePlaylistUI();
             updateNavigationButtons();
         }
@@ -580,7 +656,6 @@
             videos.forEach((video, index) => {
                 const listItem = document.createElement('li');
                 listItem.className = `p-3 rounded-lg cursor-pointer video-item text-sm`;
-
                 if (index === currentVideoIndex) {
                     listItem.classList.add('video-item-active');
                     listItem.innerHTML = `<span class="font-bold text-dark-bg">&bull; ${video.title}</span>`;
@@ -588,7 +663,6 @@
                     listItem.classList.add('text-gray-300');
                     listItem.innerHTML = `<span class="text-neon-blue mr-2">&blacktriangleright;</span> ${video.title}`;
                 }
-
                 listItem.addEventListener('click', () => loadVideo(index));
                 playlistList.appendChild(listItem);
             });
@@ -604,7 +678,6 @@
                 prevButton.classList.remove('bg-midnight/50', 'text-gray-500');
                 prevButton.classList.add('bg-midnight', 'hover:bg-gray-700', 'text-text-light');
             }
-
             if (currentVideoIndex === videos.length - 1) {
                 nextButton.disabled = true;
                 nextButton.classList.add('bg-midnight/50', 'text-gray-500');
@@ -622,8 +695,7 @@
                 target.scrollIntoView({ behavior: 'smooth' });
             }
         }
-
-        // Asignar eventos a los botones de navegación
+        
         prevButton.addEventListener('click', () => loadVideo(currentVideoIndex - 1));
         nextButton.addEventListener('click', () => loadVideo(currentVideoIndex + 1));
         scrollButton.addEventListener('click', (e) => {
@@ -631,48 +703,50 @@
             handleScroll();
         });
 
-
-        /**
-         * Lógica de la sección de Acordeón
-         */
-
+        // --- FUNCIONES DEL ACORDEÓN ---
         const accordionContainer = document.getElementById('accordion-container');
         const fixedBlockContainer = document.getElementById('fixed-metrics-block');
-
-        // Función original de ajuste de altura (se mantiene por si el acordeón principal cambia de tamaño)
+        
         function adjustMainContentHeight(mainContent) {
             if (!mainContent) return;
             const contentInner = mainContent.querySelector('.content-inner');
             if (!contentInner) return;
-
-            // Espera un frame para que el navegador compute los scrollHeight actualizados
+            // Asegura que se calcule la altura después de que el DOM esté actualizado
             requestAnimationFrame(() => {
-                // Calcula la altura total del contenido interno visible
                 const isExpanded = mainContent.previousElementSibling.getAttribute('aria-expanded') === 'true';
                 mainContent.style.maxHeight = isExpanded ? (contentInner.scrollHeight + 'px') : '0';
             });
         }
 
-        /**
-         * Renderiza los enlaces directos de video con estilo mejorado para el clic.
-         */
         function renderVideoLinks(subSteps) {
             if (!subSteps || subSteps.length === 0) return '';
-
             return `
                 <div class="space-y-2 mt-4 p-3 bg-sub-card rounded-lg border border-gray-600">
                     <h5 class="text-md font-bold text-neon-blue border-b border-gray-700 pb-2">Videos Clave:</h5>
                     ${subSteps.map(sub => {
-                        const youtubeUrl = `https://www.youtube.com/watch?v=${sub.youtubeId}`;
+                        // Usamos un placeholder si el youtubeId es uno de los nuevos placeholders
+                        const isPlaceholder = (sub.youtubeId === "3vV8r5hNq7k" || sub.youtubeId === "aQ8p5tX1yWz");
+
+                        const youtubeUrl = isPlaceholder 
+                            ? "#" // Enlace vacío para placeholders
+                            : `https://www.youtube.com/watch?v=${sub.youtubeId}`;
+
+                        const linkText = isPlaceholder 
+                            ? `${sub.title} (¡VIDEO PENDIENTE!)`
+                            : sub.title;
+
+                        // Se corrige el color inicial a text-text-light (blanco), y el hover a text-neon-blue
+                        const textColorClass = "text-text-light"; // TODO el texto es BLANCO
+                        const hoverTextColorClass = "hover:text-neon-blue"; // Color azul al pasar el mouse
+
                         return `
                             <a href="${youtubeUrl}" target="_blank" class="video-link-item">
-                                <!-- Ícono de Play/Flecha en Electric Green -->
-                                <svg class="w-6 h-6 mr-3 text-electric-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="w-6 h-6 mr-3 ${textColorClass} flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
-                                <span class="text-sm font-medium text-text-light hover:text-neon-blue flex-grow">${sub.title}</span>
-                                <span class="text-electric-green text-lg ml-2 flex-shrink-0">&rarr;</span>
+                                <span class="text-sm font-medium ${textColorClass} ${hoverTextColorClass} flex-grow">${linkText}</span>
+                                <span class="${textColorClass} text-lg ml-2 flex-shrink-0">&rarr;</span>
                             </a>
                         `;
                     }).join('')}
@@ -680,17 +754,13 @@
             `;
         }
 
-        /**
-         * Renderiza los pasos como ítems de acordeón
-         */
         function renderAccordion() {
             accordionContainer.innerHTML = actionSteps.map((step, index) => {
                 const stepNum = index + 1;
                 let stepContent = step.content || '';
-
-                // Incluye la nueva función de renderizado de enlaces de video
-                stepContent += renderVideoLinks(step.subSteps);
-
+                if (step.subSteps && step.subSteps.length > 0) {
+                    stepContent += renderVideoLinks(step.subSteps);
+                }
                 return `
                     <div class="step-accordion rounded-xl overflow-hidden border border-gray-700 hover:border-electric-green transition duration-300">
                         <button class="flex justify-between items-center w-full p-4 md:p-5 text-lg md:text-xl font-bold text-left text-text-light bg-dark-card hover:bg-midnight transition duration-150"
@@ -701,7 +771,6 @@
                             <span class="step-icon text-electric-green text-3xl transition-transform duration-300 transform font-light">+</span>
                         </button>
                         <div id="step-content-${stepNum}" class="step-content max-h-0 overflow-hidden bg-dark-card/80">
-                            <!-- El div "content-inner" es crucial para obtener la altura real sin padding/border -->
                             <div class="p-4 md:p-5 border-t border-gray-700/50 content-inner">
                                 ${stepContent}
                             </div>
@@ -709,73 +778,52 @@
                     </div>
                 `;
             }).join('');
-
-            // Agregar listeners después de que el HTML ha sido renderizado
             document.querySelectorAll('.step-accordion button').forEach(button => {
                 button.addEventListener('click', toggleAccordion);
             });
         }
 
-        /**
-         * Renderiza el bloque de información estático.
-         */
         function renderFixedBlock() {
             fixedBlockContainer.innerHTML = fixedMetricsBlockContent;
         }
 
-        /**
-         * Maneja el despliegue/colapso del contenido del acordeón principal.
-         * @param {Event} event - Evento de clic en el botón.
-         */
         function toggleAccordion(event) {
             const button = event.currentTarget;
             const targetId = button.getAttribute('data-target');
-            const targetContent = document.getElementById(targetId); // El div.step-content
+            const targetContent = document.getElementById(targetId);
             const icon = button.querySelector('.step-icon');
             const isExpanded = button.getAttribute('aria-expanded') === 'true';
 
-            // Cerrar todos los demás acordeones principales
+            // Cierra otros acordeones abiertos
             document.querySelectorAll('.step-accordion button[aria-expanded="true"]').forEach(otherButton => {
                 if (otherButton !== button) {
                     const otherTargetId = otherButton.getAttribute('data-target');
                     const otherTargetContent = document.getElementById(otherTargetId);
                     const otherIcon = otherButton.querySelector('.step-icon');
-
                     otherButton.setAttribute('aria-expanded', 'false');
                     otherIcon.classList.remove('rotate-45');
                     otherTargetContent.style.maxHeight = '0';
                 }
             });
 
+            // Abre/Cierra el acordeón actual
             if (isExpanded) {
-                // Colapsar
                 button.setAttribute('aria-expanded', 'false');
                 icon.classList.remove('rotate-45');
-                targetContent.style.maxHeight = '0'; // Cierra el acordeón principal
+                targetContent.style.maxHeight = '0';
             } else {
-                // Expandir
                 button.setAttribute('aria-expanded', 'true');
                 icon.classList.add('rotate-45');
-
-                // Abre el acordeón principal al tamaño correcto (incluyendo el contenido estático y los enlaces)
                 adjustMainContentHeight(targetContent);
             }
         }
 
+        // --- INICIALIZACIÓN ---
         window.onload = function () {
-            // MOSTRAR MODAL al cargar la página
             showModal();
-
-            // Cargar la sección de Videos
             loadVideo(0);
-
-            // Cargar la sección del Acordeón
             renderAccordion();
-
-            // Cargar el Bloque de Información Fijo
             renderFixedBlock();
-
-            // Script simple para actualizar el año en el footer
             document.getElementById('current-year').textContent = new Date().getFullYear();
         }
     </script>
